@@ -1,0 +1,62 @@
+\documentclass[a4paper,14pt]{extarticle}
+
+\include{preamble}
+
+\titleformat{\section}[block]{\LARGE\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[block]{\large\bfseries\filcenter}{}{1em}{}
+
+\newcommand\Type{лабораторної роботи}
+\newcommand\Number{№1}
+\newcommand\Subject{Кросплатформні засоби програмування}
+\newcommand\Theme{Основи розробки програм мовою Java}
+\newcommand\Class{ст.гр. КІ-36}
+\newcommand\Author{Дерев'янко С.Т.}
+\newcommand\Position{}
+\newcommand\Teacher{Іванов Ю.С.}
+
+\include{inc/env}
+
+\begin{document}
+\input{inc/titlepage}
+%\input{inc/tableofcontents}
+
+\begin{test}{Тема:}
+  основи розробки мовою Java.
+\end{test}
+
+\begin{test}{Мета:}
+  оволодіти основами розробки програм мовою Java.
+\end{test}
+
+\subsection{Завдання}
+\begin{enumerate}
+  \item Написати, скомпілювати, налагодити та запустити програму на мові Java, яка виводитиме на екран прізвище, ім’я та групу автора програми.
+  \item Скласти звіт про виконану роботу з приведенням тексту програми та результату її виконання.
+  \item Дати відповідь на контрольні запитання.
+\end{enumerate}
+
+
+%\subsection{Індивідуальний варіант}
+%\begin{table}[!h]
+  %\centering
+  %\begin{tabular}{|c|c|c|}
+    %\hline
+  %\end{tabular}
+%\end{table}
+
+\subsection{Виконання}
+\subsubsection{Лістинги програм}
+\lstinputlisting[title=lab1.java, language=java, style=java_custom]{lab1.java}
+
+\subsubsection{Результат роботи програми}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{res.png}
+    \caption{виконання lab1.java}
+\end{figure}
+
+
+\begin{test}{Висновок:}
+  оволодів основами розробки програм мовою Java.
+\end{test}
+\end{document} 
