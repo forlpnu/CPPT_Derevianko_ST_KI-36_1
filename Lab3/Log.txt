@@ -1,0 +1,7 @@
+You Create a new gas mask
+┠─Weight of a gas mask: 1.8
+┠─Filter type: AX
+┠─Breakthrough time (in minutes): 50.0
+┖─The amplifier`s charge: 80
+🮱 Connection with water bottle adapter (drinking device): true
+🮱 First, you need to squeeze the valve. Now it is closed!

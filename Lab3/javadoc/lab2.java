@@ -47,10 +47,11 @@ exit:
         File dataFile = new File("MyFile.txt");
 
         PrintWriter fout = new PrintWriter(dataFile);
+        String newLine = "\n";
+        String space = " ";
 
         char[][] arr = new char[size][];
 
-        int elements = 0;
         int length = size%2 ==0?2:1;
         for (int i = 0; i < size / 2; i++) {
             arr[i] = new char[length];
@@ -80,10 +81,7 @@ exit:
             for (char chars : arr[i]) {
                 System.out.print(chars);
                 fout.print(chars);
-                elements++;
             }
-            System.out.print(elements);
-            elements = 0;
             System.out.println();
             fout.printf("\n");
         }
