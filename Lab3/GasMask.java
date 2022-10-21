@@ -9,6 +9,10 @@ import java.io.*;
  * @version 1.0
  */
 public class GasMask {
+
+    private static int minimalCharge = Integer.MAX_VALUE;
+    private static int quantityOfMasksWithMinimalCharge = 0;
+
     private FilterCartridge filter;
     private VoiceAmplifier amplifier;
     private AssembledDrinkingDevice tube;
@@ -26,6 +30,7 @@ public class GasMask {
         fout = new PrintWriter(new File("Log.txt"));
         weightInKilos = 1.250f;
 
+
     }
     /**
      * Constructor
@@ -41,37 +46,26 @@ public class GasMask {
         tube = new AssembledDrinkingDevice();
         weightInKilos = weight;
         fout = new PrintWriter(new File("Log.txt"));
-        //char[][] art = { {████████████████      ░░░░██████████████████},
-                         //{████████████▓▓▓▓▒▒▒▒▒▒░░░░░░░░██████████████},
-                         //{████████▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░░░░░░░██████████},
-                         //{██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░░░░░░░████████},
-                         //{████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░██████},
-                         //{██████████▓▓▓▓▓▓▓▓██████▓▓▓▓▓▓░░░░░░░░██████},
-                         //{████░░▓▓████▓▓▓▓██░░▓▓████▓▓▓▓▓▓░░░░░░░░████},
-                         //{████░░░░████▓▓▓▓██░░░░████▓▓▓▓▓▓██▓▓▓▓██████},
-                         //{██████░░░░██▓▓▓▓████░░░░██▓▓▓▓▓▓██▓▓▓▓██████},
-                         //{████████░░██▓▓▓▓██████░░██▓▓▓▓▓▓██▓▓▓▓██████},
-                         //{██▓▓██████▓▓▓▓▓▓▓▓██████▓▓▓▓▓▓▓▓██▓▓▓▓██████},
-                         //{██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░████},
-                         //{██░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░████},
-                         //{██░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░████},
-                         //{██████▓▓██▓▓██▓▓██▒▒▓▓████▓▓░░░░░░░░░░░░████},
-                         //{████    ██▓▓██▓▓██▒▒  ████░░░░░░░░░░░░░░████},
-                         //{████    ██▓▓██▓▓██▒▒  ████░░░░░░░░░░░░░░████},
-                         //{████▓▓░░██▓▓██▓▓██▒▒░░████░░░░░░░░░░░░░░████},
-                         //{██░░░░░░░░▓▓██▓▓░░░░░░░░░░░░░░░░░░░░░░░░████},
-                         //{██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████},
-                         //{██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████},
-                         //{██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████},
-        //}
-        //System.out.println(art);
+
         System.out.println(" ┌───────────────────────────┐");
         System.out.println("┎┤ You create a new gas mask │");
         System.out.println("┃└───────────────────────────┘");
         fout.print("You Create a new gas mask\n");
 
-    
+        if(this.amplifier.getAmplifierCharge() < minimalCharge) {
+            minimalCharge = amplifier.getAmplifierCharge();
+            quantityOfMasksWithMinimalCharge = 0;
+        }
+
+        if(this.amplifier.getAmplifierCharge() == minimalCharge) {
+            quantityOfMasksWithMinimalCharge++;
+        }
     }
+
+    public static int getMasksWithMinimalCharge() {
+        return quantityOfMasksWithMinimalCharge;
+    }
+
     /**
      * Method returns current filter`s type
      * @return Filter`s current type
@@ -79,6 +73,15 @@ public class GasMask {
     public FilterCartridge.FilterType getFilter() {
         return filter.getFilterType();
     }
+
+    /**
+     * Method returns current voice amplifier
+     * @return VoiceAmplifier
+     */
+    public VoiceAmplifier getAmplifier() {
+        return amplifier;
+    }
+
     /**
      * Method simulates external drinking system
      */

@@ -1,0 +1,8 @@
+images/
+inc/
+styles/
+
+*.tex
+Makefile
+
+&.class
